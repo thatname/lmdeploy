@@ -36,7 +36,8 @@ target_link_libraries(Llama PUBLIC CUDA::cudart
         memory_utils
         nccl_utils
         cuda_utils
-        logger)
+        logger
+        anomaly_handler)
 
 if (MSVC AND "cxx_std_20" IN_LIST CMAKE_CXX_COMPILE_FEATURES)
 	target_compile_features(Llama PUBLIC cxx_std_20)
