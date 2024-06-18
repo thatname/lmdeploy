@@ -38,7 +38,9 @@ target_link_libraries(Llama PUBLIC CUDA::cudart
         cuda_utils
         logger)
 
-
+if (MSVC AND "cxx_std_20" IN_LIST CMAKE_CXX_COMPILE_FEATURES)
+	target_compile_features(Llama PUBLIC cxx_std_20)
+endif ()
 add_executable(llama_gemm llama_gemm.cc)
 target_link_libraries(llama_gemm PUBLIC CUDA::cudart gpt_gemm_func memory_utils cuda_utils logger)
 
